@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-HYPEN_E_DOT = '-e.'
+HYPEN_E_DOT = '-e .'
 
 def get_requirements(filename='requirements.txt'):
     with open(filename, 'r') as file:
