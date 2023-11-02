@@ -1,0 +1,208 @@
+Resultados para delta: d con imagenes de tipo OCT para Arboles De DecisiónArboles 
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.793 (±0.229)
+Precision: 0.659 (±0.272)
+Accuracy: 0.843 (±0.125)
+Specificity: 0.858 (±0.178)
+For {'smote__sampling_strategy': 0.8999999999999999, 'smote__k_neighbors': 3, 'selectfrommodel__max_features': 4, 'decisiontreeclassifier__splitter': 'random', 'decisiontreeclassifier__min_samples_split': 0.2, 'decisiontreeclassifier__min_samples_leaf': 1, 'decisiontreeclassifier__max_depth': 5, 'decisiontreeclassifier__criterion': 'entropy'} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.810 (±0.214)
+Precision: 0.619 (±0.278)
+Accuracy: 0.822 (±0.140)
+Specificity: 0.826 (±0.208)
+For {'decisiontreeclassifier__criterion': 'entropy', 'decisiontreeclassifier__max_depth': 6, 'decisiontreeclassifier__max_features': 4, 'decisiontreeclassifier__min_samples_leaf': 1, 'decisiontreeclassifier__min_samples_split': 0.25, 'decisiontreeclassifier__splitter': 'random', 'selectfrommodel__max_features': 4, 'smote__k_neighbors': 3, 'smote__sampling_strategy': 0.9999999999999999} 
+Resultados para delta: d con imagenes de tipo OCT para RandomForest
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.868 (±0.157)
+Precision: 0.658 (±0.191)
+Accuracy: 0.860 (±0.107)
+Specificity: 0.858 (±0.122)
+For {'smote__sampling_strategy': 0.5, 'smote__k_neighbors': 5, 'randomforestclassifier__n_estimators': 100, 'randomforestclassifier__min_samples_split': 0.05, 'randomforestclassifier__min_samples_leaf': 10, 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__criterion': 'gini', 'randomforestclassifier__class_weight': 'balanced', 'randomforestclassifier__bootstrap': True} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.873 (±0.167)
+Precision: 0.651 (±0.183)
+Accuracy: 0.858 (±0.106)
+Specificity: 0.853 (±0.119)
+For {'randomforestclassifier__bootstrap': True, 'randomforestclassifier__class_weight': 'balanced', 'randomforestclassifier__criterion': 'gini', 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__min_samples_leaf': 15, 'randomforestclassifier__min_samples_split': 0.05, 'randomforestclassifier__n_estimators': 100, 'smote__k_neighbors': 5, 'smote__sampling_strategy': 0.5} 
+Resultados para delta: d con imagenes de tipo RET para Arboles De Decisión
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.503 (±0.307)
+Precision: 0.504 (±0.250)
+Accuracy: 0.758 (±0.123)
+Specificity: 0.835 (±0.180)
+For {'smote__sampling_strategy': 0.7999999999999999, 'smote__k_neighbors': 2, 'selectfrommodel__max_features': 4, 'decisiontreeclassifier__splitter': 'random', 'decisiontreeclassifier__min_samples_split': 0.2, 'decisiontreeclassifier__min_samples_leaf': 1, 'decisiontreeclassifier__max_depth': 4, 'decisiontreeclassifier__criterion': 'entropy'} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.520 (±0.347)
+Precision: 0.505 (±0.302)
+Accuracy: 0.755 (±0.140)
+Specificity: 0.825 (±0.202)
+For {'decisiontreeclassifier__criterion': 'gini', 'decisiontreeclassifier__max_depth': 5, 'decisiontreeclassifier__max_features': 4, 'decisiontreeclassifier__min_samples_leaf': 1, 'decisiontreeclassifier__min_samples_split': 0.25, 'decisiontreeclassifier__splitter': 'random', 'selectfrommodel__max_features': 4, 'smote__k_neighbors': 2, 'smote__sampling_strategy': 0.7999999999999999} 
+Resultados para delta: d con imagenes de tipo RET para RandomForest
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.625 (±0.227)
+Precision: 0.509 (±0.189)
+Accuracy: 0.768 (±0.103)
+Specificity: 0.810 (±0.129)
+For {'smote__sampling_strategy': 0.8999999999999999, 'smote__k_neighbors': 4, 'randomforestclassifier__n_estimators': 500, 'randomforestclassifier__min_samples_split': 0.25, 'randomforestclassifier__min_samples_leaf': 15, 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__criterion': 'entropy', 'randomforestclassifier__class_weight': 'balanced_subsample', 'randomforestclassifier__bootstrap': True} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.630 (±0.231)
+Precision: 0.507 (±0.185)
+Accuracy: 0.767 (±0.105)
+Specificity: 0.807 (±0.132)
+For {'randomforestclassifier__bootstrap': True, 'randomforestclassifier__class_weight': 'balanced_subsample', 'randomforestclassifier__criterion': 'entropy', 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__min_samples_leaf': 20, 'randomforestclassifier__min_samples_split': 0.25, 'randomforestclassifier__n_estimators': 500, 'smote__k_neighbors': 4, 'smote__sampling_strategy': 0.8999999999999999} 
+Resultados para delta: h con imagenes de tipo OCT para Arboles De Decisión
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.783 (±0.221)
+Precision: 0.643 (±0.259)
+Accuracy: 0.834 (±0.121)
+Specificity: 0.850 (±0.182)
+For {'smote__sampling_strategy': 0.8999999999999999, 'smote__k_neighbors': 6, 'selectfrommodel__max_features': 3, 'decisiontreeclassifier__splitter': 'random', 'decisiontreeclassifier__min_samples_split': 0.25, 'decisiontreeclassifier__min_samples_leaf': 1, 'decisiontreeclassifier__max_depth': 4, 'decisiontreeclassifier__criterion': 'gini'} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.803 (±0.260)
+Precision: 0.592 (±0.252)
+Accuracy: 0.808 (±0.131)
+Specificity: 0.809 (±0.203)
+For {'decisiontreeclassifier__criterion': 'entropy', 'decisiontreeclassifier__max_depth': 4, 'decisiontreeclassifier__max_features': 3, 'decisiontreeclassifier__min_samples_leaf': 1, 'decisiontreeclassifier__min_samples_split': 0.2, 'decisiontreeclassifier__splitter': 'random', 'selectfrommodel__max_features': 3, 'smote__k_neighbors': 6, 'smote__sampling_strategy': 0.9999999999999999} 
+Resultados para delta: h con imagenes de tipo OCT para RandomForest
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.843 (±0.175)
+Precision: 0.648 (±0.192)
+Accuracy: 0.852 (±0.101)
+Specificity: 0.854 (±0.126)
+For {'smote__sampling_strategy': 0.5, 'smote__k_neighbors': 5, 'randomforestclassifier__n_estimators': 100, 'randomforestclassifier__min_samples_split': 0.05, 'randomforestclassifier__min_samples_leaf': 10, 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__criterion': 'gini', 'randomforestclassifier__class_weight': 'balanced', 'randomforestclassifier__bootstrap': True} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.843 (±0.181)
+Precision: 0.644 (±0.188)
+Accuracy: 0.850 (±0.102)
+Specificity: 0.852 (±0.126)
+For {'randomforestclassifier__bootstrap': True, 'randomforestclassifier__class_weight': 'balanced', 'randomforestclassifier__criterion': 'gini', 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__min_samples_leaf': 15, 'randomforestclassifier__min_samples_split': 0.05, 'randomforestclassifier__n_estimators': 100, 'smote__k_neighbors': 5, 'smote__sampling_strategy': 0.5} 
+Resultados para delta: h con imagenes de tipo RET para Arboles De Decisión
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.505 (±0.324)
+Precision: 0.512 (±0.285)
+Accuracy: 0.760 (±0.137)
+Specificity: 0.837 (±0.200)
+For {'smote__sampling_strategy': 0.8999999999999999, 'smote__k_neighbors': 2, 'selectfrommodel__max_features': 4, 'decisiontreeclassifier__splitter': 'random', 'decisiontreeclassifier__min_samples_split': 0.15000000000000002, 'decisiontreeclassifier__min_samples_leaf': 5, 'decisiontreeclassifier__max_depth': 3, 'decisiontreeclassifier__criterion': 'log_loss'} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.532 (±0.346)
+Precision: 0.505 (±0.339)
+Accuracy: 0.755 (±0.135)
+Specificity: 0.822 (±0.209)
+For {'decisiontreeclassifier__criterion': 'entropy', 'decisiontreeclassifier__max_depth': 3, 'decisiontreeclassifier__max_features': 4, 'decisiontreeclassifier__min_samples_leaf': 5, 'decisiontreeclassifier__min_samples_split': 0.10000000000000002, 'decisiontreeclassifier__splitter': 'random', 'selectfrommodel__max_features': 4, 'smote__k_neighbors': 2, 'smote__sampling_strategy': 0.9999999999999999} 
+Resultados para delta: h con imagenes de tipo RET para RandomForest
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.570 (±0.229)
+Precision: 0.502 (±0.206)
+Accuracy: 0.763 (±0.103)
+Specificity: 0.821 (±0.130)
+For {'smote__sampling_strategy': 0.5, 'smote__k_neighbors': 3, 'randomforestclassifier__n_estimators': 277, 'randomforestclassifier__min_samples_split': 0.25, 'randomforestclassifier__min_samples_leaf': 20, 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__criterion': 'log_loss', 'randomforestclassifier__class_weight': 'balanced_subsample', 'randomforestclassifier__bootstrap': True} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.570 (±0.229)
+Precision: 0.502 (±0.206)
+Accuracy: 0.763 (±0.103)
+Specificity: 0.821 (±0.130)
+For {'randomforestclassifier__bootstrap': True, 'randomforestclassifier__class_weight': 'balanced_subsample', 'randomforestclassifier__criterion': 'entropy', 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__min_samples_leaf': 20, 'randomforestclassifier__min_samples_split': 0.25, 'randomforestclassifier__n_estimators': 277, 'smote__k_neighbors': 3, 'smote__sampling_strategy': 0.5} 
+Resultados para delta: i con imagenes de tipo OCT para Arboles De Decisión
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.788 (±0.256)
+Precision: 0.657 (±0.261)
+Accuracy: 0.844 (±0.114)
+Specificity: 0.861 (±0.158)
+For {'smote__sampling_strategy': 0.8999999999999999, 'smote__k_neighbors': 3, 'selectfrommodel__max_features': 4, 'decisiontreeclassifier__splitter': 'random', 'decisiontreeclassifier__min_samples_split': 0.2, 'decisiontreeclassifier__min_samples_leaf': 1, 'decisiontreeclassifier__max_depth': 5, 'decisiontreeclassifier__criterion': 'entropy'} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.788 (±0.256)
+Precision: 0.657 (±0.261)
+Accuracy: 0.844 (±0.114)
+Specificity: 0.861 (±0.158)
+For {'decisiontreeclassifier__criterion': 'entropy', 'decisiontreeclassifier__max_depth': 5, 'decisiontreeclassifier__max_features': 4, 'decisiontreeclassifier__min_samples_leaf': 1, 'decisiontreeclassifier__min_samples_split': 0.2, 'decisiontreeclassifier__splitter': 'random', 'selectfrommodel__max_features': 4, 'smote__k_neighbors': 3, 'smote__sampling_strategy': 0.8999999999999999} 
+Resultados para delta: i con imagenes de tipo OCT para RandomForest
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.868 (±0.149)
+Precision: 0.667 (±0.183)
+Accuracy: 0.865 (±0.095)
+Specificity: 0.863 (±0.111)
+For {'smote__sampling_strategy': 0.5, 'smote__k_neighbors': 5, 'randomforestclassifier__n_estimators': 100, 'randomforestclassifier__min_samples_split': 0.05, 'randomforestclassifier__min_samples_leaf': 10, 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__criterion': 'gini', 'randomforestclassifier__class_weight': 'balanced', 'randomforestclassifier__bootstrap': True} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.875 (±0.154)
+Precision: 0.661 (±0.187)
+Accuracy: 0.862 (±0.098)
+Specificity: 0.858 (±0.114)
+For {'randomforestclassifier__bootstrap': True, 'randomforestclassifier__class_weight': 'balanced', 'randomforestclassifier__criterion': 'gini', 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__min_samples_leaf': 15, 'randomforestclassifier__min_samples_split': 0.05, 'randomforestclassifier__n_estimators': 100, 'smote__k_neighbors': 5, 'smote__sampling_strategy': 0.5} 
+Resultados para delta: i con imagenes de tipo RET para Arboles De Decisión
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.507 (±0.277)
+Precision: 0.519 (±0.348)
+Accuracy: 0.756 (±0.142)
+Specificity: 0.831 (±0.202)
+For {'smote__sampling_strategy': 0.7999999999999999, 'smote__k_neighbors': 4, 'selectfrommodel__max_features': 2, 'decisiontreeclassifier__splitter': 'best', 'decisiontreeclassifier__min_samples_split': 0.15000000000000002, 'decisiontreeclassifier__min_samples_leaf': 15, 'decisiontreeclassifier__max_depth': 3, 'decisiontreeclassifier__criterion': 'log_loss'} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.527 (±0.263)
+Precision: 0.502 (±0.314)
+Accuracy: 0.741 (±0.181)
+Specificity: 0.805 (±0.269)
+For {'decisiontreeclassifier__criterion': 'gini', 'decisiontreeclassifier__max_depth': 3, 'decisiontreeclassifier__max_features': 2, 'decisiontreeclassifier__min_samples_leaf': 15, 'decisiontreeclassifier__min_samples_split': 0.2, 'decisiontreeclassifier__splitter': 'best', 'selectfrommodel__max_features': 2, 'smote__k_neighbors': 4, 'smote__sampling_strategy': 0.8999999999999999} 
+Resultados para delta: i con imagenes de tipo RET para RandomForest
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.628 (±0.227)
+Precision: 0.528 (±0.194)
+Accuracy: 0.779 (±0.096)
+Specificity: 0.824 (±0.115)
+For {'smote__sampling_strategy': 0.6, 'smote__k_neighbors': 4, 'randomforestclassifier__n_estimators': 144, 'randomforestclassifier__min_samples_split': 0.25, 'randomforestclassifier__min_samples_leaf': 20, 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__criterion': 'log_loss', 'randomforestclassifier__class_weight': 'balanced_subsample', 'randomforestclassifier__bootstrap': True} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.628 (±0.227)
+Precision: 0.528 (±0.194)
+Accuracy: 0.779 (±0.096)
+Specificity: 0.824 (±0.115)
+For {'randomforestclassifier__bootstrap': True, 'randomforestclassifier__class_weight': 'balanced_subsample', 'randomforestclassifier__criterion': 'entropy', 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__min_samples_leaf': 20, 'randomforestclassifier__min_samples_split': 0.25, 'randomforestclassifier__n_estimators': 144, 'smote__k_neighbors': 4, 'smote__sampling_strategy': 0.6} 
+Resultados para delta: k con imagenes de tipo OCT para Arboles De Decisión
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.777 (±0.190)
+Precision: 0.614 (±0.209)
+Accuracy: 0.828 (±0.105)
+Specificity: 0.843 (±0.133)
+For {'smote__sampling_strategy': 0.8999999999999999, 'smote__k_neighbors': 3, 'selectfrommodel__max_features': 4, 'decisiontreeclassifier__splitter': 'best', 'decisiontreeclassifier__min_samples_split': 0.1, 'decisiontreeclassifier__min_samples_leaf': 15, 'decisiontreeclassifier__max_depth': 3, 'decisiontreeclassifier__criterion': 'gini'} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.782 (±0.188)
+Precision: 0.599 (±0.194)
+Accuracy: 0.820 (±0.102)
+Specificity: 0.831 (±0.142)
+For {'decisiontreeclassifier__criterion': 'gini', 'decisiontreeclassifier__max_depth': 4, 'decisiontreeclassifier__max_features': 4, 'decisiontreeclassifier__min_samples_leaf': 15, 'decisiontreeclassifier__min_samples_split': 0.15000000000000002, 'decisiontreeclassifier__splitter': 'best', 'selectfrommodel__max_features': 4, 'smote__k_neighbors': 3, 'smote__sampling_strategy': 0.8999999999999999} 
+Resultados para delta: k con imagenes de tipo OCT para RandomForest
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.785 (±0.197)
+Precision: 0.664 (±0.171)
+Accuracy: 0.853 (±0.075)
+Specificity: 0.873 (±0.107)
+For {'smote__sampling_strategy': 0.5, 'smote__k_neighbors': 3, 'randomforestclassifier__n_estimators': 277, 'randomforestclassifier__min_samples_split': 0.15000000000000002, 'randomforestclassifier__min_samples_leaf': 1, 'randomforestclassifier__max_features': 'sqrt', 'randomforestclassifier__criterion': 'gini', 'randomforestclassifier__class_weight': 'balanced', 'randomforestclassifier__bootstrap': True} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.788 (±0.217)
+Precision: 0.657 (±0.175)
+Accuracy: 0.851 (±0.085)
+Specificity: 0.870 (±0.111)
+For {'randomforestclassifier__bootstrap': True, 'randomforestclassifier__class_weight': 'balanced', 'randomforestclassifier__criterion': 'gini', 'randomforestclassifier__max_features': 'sqrt', 'randomforestclassifier__min_samples_leaf': 1, 'randomforestclassifier__min_samples_split': 0.15000000000000002, 'randomforestclassifier__n_estimators': 277, 'smote__k_neighbors': 3, 'smote__sampling_strategy': 0.4} 
+Resultados para delta: k con imagenes de tipo RET para Arboles De Decisión
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.525 (±0.236)
+Precision: 0.531 (±0.323)
+Accuracy: 0.758 (±0.186)
+Specificity: 0.828 (±0.253)
+For {'smote__sampling_strategy': 0.8999999999999999, 'smote__k_neighbors': 6, 'selectfrommodel__max_features': 3, 'decisiontreeclassifier__splitter': 'random', 'decisiontreeclassifier__min_samples_split': 0.25, 'decisiontreeclassifier__min_samples_leaf': 1, 'decisiontreeclassifier__max_depth': 4, 'decisiontreeclassifier__criterion': 'gini'} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.555 (±0.246)
+Precision: 0.548 (±0.317)
+Accuracy: 0.768 (±0.173)
+Specificity: 0.832 (±0.246)
+For {'decisiontreeclassifier__criterion': 'entropy', 'decisiontreeclassifier__max_depth': 3, 'decisiontreeclassifier__max_features': 3, 'decisiontreeclassifier__min_samples_leaf': 1, 'decisiontreeclassifier__min_samples_split': 0.3, 'decisiontreeclassifier__splitter': 'random', 'selectfrommodel__max_features': 3, 'smote__k_neighbors': 6, 'smote__sampling_strategy': 0.9999999999999999} 
+Resultados para delta: k con imagenes de tipo RET para RandomForest
+Resultados de busqueda Aleatoria:
+Sensitivity: 0.535 (±0.254)
+Precision: 0.503 (±0.195)
+Accuracy: 0.765 (±0.094)
+Specificity: 0.835 (±0.128)
+For {'smote__sampling_strategy': 0.6, 'smote__k_neighbors': 6, 'randomforestclassifier__n_estimators': 277, 'randomforestclassifier__min_samples_split': 0.25, 'randomforestclassifier__min_samples_leaf': 10, 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__criterion': 'gini', 'randomforestclassifier__class_weight': 'balanced', 'randomforestclassifier__bootstrap': True} 
+Resultados de busqueda Cuadricula:
+Sensitivity: 0.545 (±0.248)
+Precision: 0.502 (±0.218)
+Accuracy: 0.764 (±0.102)
+Specificity: 0.830 (±0.130)
+For {'randomforestclassifier__bootstrap': True, 'randomforestclassifier__class_weight': 'balanced', 'randomforestclassifier__criterion': 'gini', 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__min_samples_leaf': 10, 'randomforestclassifier__min_samples_split': 0.25, 'randomforestclassifier__n_estimators': 277, 'smote__k_neighbors': 6, 'smote__sampling_strategy': 0.5} 

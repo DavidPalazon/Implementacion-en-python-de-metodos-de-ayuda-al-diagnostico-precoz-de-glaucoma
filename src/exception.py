@@ -18,8 +18,20 @@ class CustomException(Exception):
     def __str__(self):
         return error_message_detail(self.error, self.tb)
 
-# Ejemplo de uso
+def risky_math_operation(x, y):
+    """Función de ejemplo que realiza una operación matemática riesgosa (división)."""
+    try:
+        result = x / y
+        return result
+    except ZeroDivisionError as e:
+        raise CustomException(e, sys.exc_info()[2]) from e
 
+# Ejemplo de uso
+if __name__ == "__main__":
+    try:
+        print(risky_math_operation(5, 0))
+    except CustomException as ce:
+        print(f"Se capturó una excepción personalizada: {ce}")
 
 
 
