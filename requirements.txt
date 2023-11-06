@@ -7,4 +7,5 @@ graphviz
 imbalanced-learn
 pytest
 openpyxl
+dill
 -e .

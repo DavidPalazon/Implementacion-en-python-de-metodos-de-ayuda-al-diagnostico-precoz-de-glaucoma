@@ -1,14 +1,17 @@
 import pandas as pd
 import numpy as np
+import sys
+
 from src.logger import logger
 from src.exception import CustomException
+from src.utils import save_object
 
 class DeltaMetric:
     """
     Clase que representa una métrica de asimetría entre sectores OD y OS.
     """
 
-    def __init__(self, name, operation):
+    def __init__(self, name: str, operation: callable) -> None:
         """
         Constructor de la clase.
 
@@ -19,7 +22,7 @@ class DeltaMetric:
         self.name = name
         self.operation = operation
 
-    def calculate(self, df):
+    def calculate(self, df: pd.DataFrame) -> pd.DataFrame():
         """
         Calcula la métrica de asimetría para el DataFrame dado.
 
@@ -62,7 +65,7 @@ class DeltaMetricCollection:
     Clase que representa una colección de métricas de asimetría.
     """
 
-    def __init__(self, metrics):
+    def __init__(self, metrics: list) -> None:
         """
         Constructor de la clase.
 
@@ -71,7 +74,7 @@ class DeltaMetricCollection:
         """
         self.metrics = metrics
 
-    def calculate_all(self, df):
+    def calculate_all(self, df: pd.DataFrame) -> dict():
         """
         Calcula todas las métricas de asimetría para el DataFrame dado.
 
@@ -85,6 +88,29 @@ class DeltaMetricCollection:
         for metric in self.metrics:
             result[metric.name] = metric.calculate(df)
         return result
+    
+    def get_metric_names(self) -> list():
+        """
+        Retorna:
+        - Lista con los nombres de las métricas.
+        """
+        return [metric.name for metric in self.metrics]
+    
+    def save_transformer(self, path: str, transformer: object) -> None:
+        """
+        Guarda el objeto DeltaMetricCollection en un archivo pickle.
+
+        Parámetros:
+        - transformer: Objeto DeltaMetricCollection a guardar.
+        - path: Ruta del archivo pickle.
+        """
+        try:
+            save_object(path, transformer)
+            logger.info(f'Transformer guardado exitosamente en {path}')
+        except Exception as e:
+            logger.error(f'Ocurrió un error al guardar el transformer: {e}', exc_info=True)
+            raise CustomException("Error al guardar el transformer", e, sys.exc_info()[2])
+
 
 # Definiciones de operaciones para cada métrica
 operations = {
@@ -107,4 +133,10 @@ metrics = [DeltaMetric(name, op) for name, op in sorted(operations.items())]
 
 # Crear objeto DeltaMetricCollection a partir de la lista de objetos DeltaMetric
 DELTA_METRICS = DeltaMetricCollection(metrics)
+
+# Definir directorio de salida
+DELTA_METRICS_PATH = 'models/transformer/delta_metrics.pkl'
+
+# Guardar objeto DeltaMetricCollection en un archivo pickle
+DELTA_METRICS.save_transformer(DELTA_METRICS_PATH, DELTA_METRICS)
 
