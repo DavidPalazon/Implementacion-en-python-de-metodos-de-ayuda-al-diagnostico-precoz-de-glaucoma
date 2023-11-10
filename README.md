@@ -6,11 +6,21 @@
 Este repositorio contiene el código y la documentación del proyecto realizado para el diagnóstico precoz de glaucoma utilizando Python. Se enfoca en el análisis de retinografías y tomografías de coherencia óptica (OCT) para detectar características indicativas de glaucoma.
 
 ## Contenido del Repositorio
-src/: Contiene los scripts de Python desarrollados para el análisis de imágenes y la implementación de algoritmos de aprendizaje automático.
-venv/: Describe el entorno de anaconda utilizado para el desarrollo del código. Se aporta para el archivo '''venv.yml''' y '''requirements.txt''' para instalarlo mediante conda y mantener la compatibilidad de paquetes en las distintas maquinas que se ejecute.
-articulos/: Incluye el artículo presentado en el CASEIB2023 y el Trabajo de Fin de Grado (TFG) que respalda este proyecto.
-presentacion/: Materiales utilizados para presentaciones, incluyendo diapositivas y pósteres.
-.gitignore: Archivo para excluir archivos y carpetas no deseados del repositorio.
+### src/: 
+Contiene los scripts de Python desarrollados para el análisis de imágenes y la implementación de algoritmos de aprendizaje automático.
+
+### venv/: 
+Describe el entorno de anaconda utilizado para el desarrollo del código. Se aporta para el archivo ```venv.yml``` y ```requirements.txt``` para instalarlo mediante conda y mantener la compatibilidad de paquetes en las distintas maquinas que se ejecute.
+
+### articulos/: 
+Incluye el artículo presentado en el CASEIB2023 y el Trabajo de Fin de Grado (TFG) que respalda este proyecto.
+
+### presentacion/: 
+Materiales utilizados para presentaciones, incluyendo diapositivas y pósteres.
+
+### .gitignore: 
+Archivo para excluir archivos y carpetas no deseados del repositorio.
+
 ### Restricciones de Acceso
 Por razones de privacidad y seguridad, la base de datos original que contiene información sensible de pacientes no se incluye en este repositorio.
 
