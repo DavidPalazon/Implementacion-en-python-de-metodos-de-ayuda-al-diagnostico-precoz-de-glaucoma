@@ -1,20 +1,20 @@
-IMPLEMENTACIÓN EN PYTHON DE MÉTODOS DE AYUDA AL DIAGNÓSTICO DE GLAUCOMA BASADO EN CARACTERÍSTICAS EXTRAÍDAS DE AMBOS OJOS EN RETINOGRAFÍAS Y TOMOGRAFÍAS DE COHERENCIA ÓPTICA
+# IMPLEMENTACIÓN EN PYTHON DE MÉTODOS DE AYUDA AL DIAGNÓSTICO DE GLAUCOMA BASADO EN CARACTERÍSTICAS EXTRAÍDAS DE AMBOS OJOS EN RETINOGRAFÍAS Y TOMOGRAFÍAS DE COHERENCIA ÓPTICA
 
-#IMPORTANTE: AHORA MISMO EL CÓDIGO ESTA TERMINANDO DE SER DESARRROLLADO PARA UN POSTERIOR USO MAS SIMPLE, MEJORADO Y ESCALABLE. APESAR DE ELLO, LA METODOLODÍA ES LA MISMA QUE LA EXPUESTA EN LOS ARTICULOS Y SE OBTENDRAN LOS MISMOS RESULTADOS. LA MODIFICACIÓN ES PARA LA ESTRUCTURRA DE CODIGO. DISCULPEN LAS MOLESTIAS.
+# IMPORTANTE: AHORA MISMO EL CÓDIGO ESTA TERMINANDO DE SER DESARRROLLADO PARA UN POSTERIOR USO MAS SIMPLE, MEJORADO Y ESCALABLE. APESAR DE ELLO, LA METODOLODÍA ES LA MISMA QUE LA EXPUESTA EN LOS ARTICULOS Y SE OBTENDRAN LOS MISMOS RESULTADOS. LA MODIFICACIÓN ES PARA LA ESTRUCTURRA DE CODIGO. DISCULPEN LAS MOLESTIAS.
 
-###Descripción
+### Descripción
 Este repositorio contiene el código y la documentación del proyecto realizado para el diagnóstico precoz de glaucoma utilizando Python. Se enfoca en el análisis de retinografías y tomografías de coherencia óptica (OCT) para detectar características indicativas de glaucoma.
 
-###Contenido del Repositorio
+### Contenido del Repositorio
 src/: Contiene los scripts de Python desarrollados para el análisis de imágenes y la implementación de algoritmos de aprendizaje automático.
 venv/: Describe el entorno de anaconda utilizado para el desarrollo del código. Se aporta para el archivo '''venv.yml''' y '''requirements.txt''' para instalarlo mediante conda y mantener la compatibilidad de paquetes en las distintas maquinas que se ejecute.
 articulos/: Incluye el artículo presentado en el CASEIB2023 y el Trabajo de Fin de Grado (TFG) que respalda este proyecto.
 presentacion/: Materiales utilizados para presentaciones, incluyendo diapositivas y pósteres.
 .gitignore: Archivo para excluir archivos y carpetas no deseados del repositorio.
-###Restricciones de Acceso
+### Restricciones de Acceso
 Por razones de privacidad y seguridad, la base de datos original que contiene información sensible de pacientes no se incluye en este repositorio.
 
-###Uso
+### Uso
 Este proyecto está diseñado para facilitar la investigación y el análisis en el diagnóstico precoz de glaucoma mediante el uso de técnicas de procesamiento de imágenes y aprendizaje automático. A continuación, se detallan los pasos para configurar y utilizar el proyecto.
 
 Requisitos Previos
@@ -24,19 +24,19 @@ Configuración del Entorno
 Clonar el Repositorio:
 
 Primero, clona este repositorio en tu máquina local usando:
-'''bash
+''' bash
 git clone https://github.com/DavidPalazon/Implementacion-en-python-de-metodos-de-ayuda-al-diagnostico-precoz-de-glaucoma.git
 '''
 Navega al directorio clonado:
-'''bash
+''' bash
 cd Implementacion-en-python-de-metodos-de-ayuda-al-diagnostico-precoz-de-glaucoma
 '''
 Configurar el Entorno de Anaconda:
 
 Crea un nuevo entorno de Anaconda utilizando el archivo venv.yml (asegurate que especificas correctamente su ruta):
-'''bash
+``` bash
 conda env create -f venv.yml
-'''
+```
 Activa el entorno:
 '''bash
 conda activate nombre_del_entorno
