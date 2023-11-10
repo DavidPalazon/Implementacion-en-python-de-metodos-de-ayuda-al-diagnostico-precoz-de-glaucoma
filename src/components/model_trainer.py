@@ -17,7 +17,7 @@ from src.utils import get_params_grid, get_random_params, save_object
 @dataclass
 class ModelTrainerConfig:
     """Clase que representa la configuración del entrenador de modelos."""
-    trained_model_path: str = os.path.join('models', 'Model.pkl')
+    trained_model_path: str = os.path.join('models') # Carpeta donde se guardarán los modelos entrenados.
 
 
 
@@ -42,49 +42,26 @@ class ModelTrainer:
         results_logger.info(content)
 
     
-    def refit_strategy(self, cv_results, search):
+    def best_model(self, cv_results, search) -> int:
+        # Filtrar los modelos con la precision mayor a 0.5
+        high_precision_cv_results = pd.DataFrame(cv_results)[pd.DataFrame(cv_results)["mean_test_precision"] > 0.5]
 
-        # List of columns to be used
-        COLUMNS = [
-            "mean_score_time",
-            "mean_test_sensitivity",
-            "std_test_sensitivity",
-            "mean_test_precision",
-            "std_test_precision",
-            "mean_test_specificity",
-            "std_test_specificity",
-            "mean_test_accuracy",
-            "std_test_accuracy",
-            "rank_test_sensitivity",
-            "rank_test_precision",
-            "params",
-        ]
+        # Filtrar los modelos con la sensibilidad media mayor a la máxima media menos la máxima desviación estándar
+        best_recall_models = high_precision_cv_results[high_precision_cv_results["mean_test_sensitivity"] > high_precision_cv_results["mean_test_sensitivity"].max() - high_precision_cv_results["std_test_sensitivity"].max()]
 
-        precision_threshold = 0.5
+        # Identificar el mejor modelo por su sensibilidad (máxima media y mínima desviación estándar)
+        best_model_index = best_recall_models["std_test_sensitivity"].idxmin()
 
-        cv_results_ = pd.DataFrame(cv_results)
-        high_precision_cv_results = cv_results_[cv_results_["mean_test_precision"] > precision_threshold]
-        high_precision_cv_results = high_precision_cv_results[COLUMNS]
+        self.save_best_results(best_recall_models.loc[best_model_index], search)
+        return best_model_index
 
-        best_recall = high_precision_cv_results["mean_test_sensitivity"].max()
-        best_recall_std = high_precision_cv_results["mean_test_sensitivity"].std()
-
-        high_recall_cv_results = high_precision_cv_results[
-            high_precision_cv_results["mean_test_sensitivity"] > best_recall - best_recall_std
-        ]
-
-        top_recall_high_precision_index = high_recall_cv_results["mean_test_sensitivity"].idxmax()
-
-        self.save_best_results(high_recall_cv_results.loc[top_recall_high_precision_index], search)
-        return top_recall_high_precision_index
-
-
-    def train_model(self, pipe,model_name, X, y) -> object:
+    def train_model(self, pipe ,model_name: str,metrica: str, X, y) -> object:
         """Entrena un modelo de clasificación.
 
         Parámetros:
         - pipe: Pipeline de sklearn.
         - model_name: Nombre del modelo.
+        - metrica: Nombre de la métrica de asimetría utilizada.
         - X: Datos de entrada.
         - y: Etiquetas.
 
@@ -101,26 +78,30 @@ class ModelTrainer:
         }
 
         # Definir validación cruzada
-        cv_hiper = StratifiedShuffleSplit(n_splits=50, test_size=0.25, random_state=27)
+        cv_hiper = StratifiedShuffleSplit(n_splits=100, test_size=0.25, random_state=27)
 
         # Primero: RandomizedSearchCV
         param_space_random = get_random_params(model_name)
-        randomized_search = RandomizedSearchCV(pipe[model_name], param_distributions=param_space_random, n_iter=100, scoring=scoring, cv=cv_hiper, n_jobs=-1, refit=lambda x: self.refit_strategy(x, 'Aleatoria'), random_state=27)
+        randomized_search = RandomizedSearchCV(pipe[model_name], param_distributions=param_space_random, n_iter=200, scoring=scoring, cv=cv_hiper, n_jobs=-1, refit=lambda x: self.best_model(x, 'Aleatoria'), random_state=27)
         randomized_result = randomized_search.fit(X, y)
 
         # Segundo: GridSearchCV con los mejores hiperparámetros
         param_space_grid = get_params_grid(randomized_result, model_name)
-        grid_search = GridSearchCV(pipe[model_name], param_grid=param_space_grid, scoring=scoring, cv=cv_hiper, n_jobs=-1, refit=lambda x: self.refit_strategy(x, 'Cuadricula'))
+        grid_search = GridSearchCV(pipe[model_name], param_grid=param_space_grid, scoring=scoring, cv=cv_hiper, n_jobs=-1, refit=lambda x: self.best_model(x, 'Cuadricula'))
         grid_result = grid_search.fit(X, y)
 
-        # Guardar el modelo
-        save_object(self.model_trainer_config.trained_model_path, grid_result)
+        # Guardar el modelo entrenado
+        save_object(f'{self.model_trainer_config.trained_model_path}/{model_name}_{metrica}_model.pkl', grid_result) 
 
         return grid_result
 
     
-    def train(self) -> None:
-        """Entrena el modelo."""
+    def train(self) -> dict:
+        """Entrena el modelo.
+        
+        Retorna:
+        - Diccionario con los modelos entrenados.
+        """
         try:
             # Definir directorios
             DATA_DIRECTORY_OCT = os.path.join('data', 'BBDD_Original', 'DatosOCT', 'Datos Pacientes v13.6_anonimizado_OCT.xlsx')
@@ -139,32 +120,53 @@ class ModelTrainer:
             df_ret = pd.read_csv(os.path.join(DATA_OUTPUT, 'Datos_SECT_RET.csv'), index_col=0)
 
             # Calcular las métricas de asimetría
-            oct_metrics = DELTA_METRICS.calculate_all(df_oct)
-            ret_metrics = DELTA_METRICS.calculate_all(df_ret)
+            oct_metrics: dict = DELTA_METRICS.calculate_all(df_oct)
+            ret_metrics: dict = DELTA_METRICS.calculate_all(df_ret)
 
-            # Unir los datos de OCT y RET
-            df = pd.concat([oct_metrics, ret_metrics], axis=1)
-
-            
             # Definir el pipeline
             pipe = {
                 'DecisionTree': DecisionTreeClassifier(random_state=27),
-                'RandomForest': RandomForestClassifier(n_jobs=-1, random_state=27, oob_score=True)
+                'RandomForest': RandomForestClassifier(n_jobs=2, random_state=27, oob_score=True)
             }
 
-            # Entrenar el modelo
-            for model_name in pipe:
-                self.train_model(pipe, model_name, df, df['Glaucoma'])
+            # Lista para almacenar los modelos entrenados
+            trained_models = dict()
 
-            logger.info("Modelo entrenado exitosamente.")
+            # Unir los datos de OCT y RET
+            for key_oct, key_ret in zip(oct_metrics.keys(), ret_metrics.keys()):
+                df_oct = oct_metrics[key_oct]
+                df_ret = ret_metrics[key_ret]
+                df_octret = pd.merge(df_oct, df_ret, on=['Paciente', 'Glaucoma'], how='inner', suffixes=('_OCT', '_RET'))
+
+                # Entrenar el modelo
+                for model_name in pipe:
+                    trained_model = self.train_model(pipe, model_name, key_oct, df_oct, df_oct['Glaucoma'])
+                    #Almacena los resultados en un diccionario con la clave del modelo, la métrica de asimetría, el path del modelo y el modelo entrenado sin utilizar append
+                    trained_models[(f'{self.model_trainer_config.trained_model_path}/{model_name}_{key_oct}_OCT.pkl', trained_model)]
+                    logger.info("Modelo entrenado exitosamente para OCT.")
+                    
+                    trained_model = self.train_model(pipe, model_name, key_ret, df_ret, df_ret['Glaucoma'])
+                    trained_models[(f'{self.model_trainer_config.trained_model_path}/{model_name}_{key_ret}_RET.pkl', trained_model)]
+                    logger.info("Modelo entrenado exitosamente para RET.")
+                    
+                    if key_oct == key_ret:
+                        key_octret = key_oct
+                        trained_model = self.train_model(pipe, model_name, f'{key_oct}_{key_ret}', df_octret, df_octret['Glaucoma'])
+                        trained_models[(f'{self.model_trainer_config.trained_model_path}/{model_name}_{key_octret}_OCTRET.pkl', trained_model)]
+                        logger.info("Modelo entrenado exitosamente para OCT-RET.")
+                    
+            logger.info("Modelos entrenados exitosamente.")
+            return trained_models
 
         except Exception as e:
             logger.error("Error al entrenar el modelo.", exc_info=True)
             raise CustomException("Error al entrenar el modelo.", e, sys.exc_info()[2])
-        
 
 
-            
+if __name__ == "__main__":
+    model_trainer = ModelTrainer()
+    model_trainer.train()
+
 
 
 

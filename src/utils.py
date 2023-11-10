@@ -66,12 +66,14 @@ def get_random_params(model_name: str) -> list:
             {
                 "smote__sampling_strategy": [float(x) for x in np.arange(0.4, 1.0, 0.1)],
                 "smote__k_neighbors": [2, 3, 4, 5, 6],
-                "selectfrommodel__max_features": [2, 3, 4],
+                "selectfrommodel__max_features": [2, 3, 4, 5, 6],
                 "decisiontreeclassifier__criterion": ['gini', 'entropy', 'log_loss'],
                 "decisiontreeclassifier__max_depth": [int(x) for x in np.arange(1, 7)],
                 "decisiontreeclassifier__min_samples_split": [float(x) for x in np.arange(0.05, 0.3, 0.05)],
                 "decisiontreeclassifier__splitter": ['best', 'random'],
-                "decisiontreeclassifier__min_samples_leaf": [1, 5, 10, 15, 20]
+                "decisiontreeclassifier__min_samples_leaf": [1, 5, 10, 15, 20],
+                "decisiontreeclassifier__class_weight": [None, 'balanced']
+
             }
         ]
     elif model_name == 'RandomForest':
@@ -85,7 +87,11 @@ def get_random_params(model_name: str) -> list:
                 "randomforestclassifier__min_samples_leaf": [1, 5, 10, 15, 20],
                 "randomforestclassifier__max_features": ['sqrt', 'log2'],
                 "randomforestclassifier__class_weight": [None, 'balanced', 'balanced_subsample'],
-                "randomforestclassifier__bootstrap": [True]
+                "randomforestclassifier__bootstrap": [True],
+                "randomforestclassifier__oob_score": [True],
+                "randomforestclassifier__warm_start": [True, False],
+                "randomforestclassifier__max_samples": [0.5, 0.8, 1.0],
+                "randomforestclassifier__max_depth": [int(x) for x in np.arange(1, 7)]
             }
         ]
     else:
@@ -120,7 +126,7 @@ def get_params_grid(puntuaciones, model_name: str) -> list:
                                                             puntuaciones.best_params_["decisiontreeclassifier__min_samples_split"] + 0.05],
                 "decisiontreeclassifier__splitter": [puntuaciones.best_params_["decisiontreeclassifier__splitter"]],
                 "decisiontreeclassifier__min_samples_leaf": [puntuaciones.best_params_["decisiontreeclassifier__min_samples_leaf"]],
-                "decisiontreeclassifier__max_features": [puntuaciones.best_params_['selectfrommodel__max_features']]
+                "decisiontreeclassifier__class_weight": [puntuaciones.best_params_["decisiontreeclassifier__class_weight"]]
             }
         ]
     elif model_name == 'RandomForest':
@@ -134,7 +140,11 @@ def get_params_grid(puntuaciones, model_name: str) -> list:
             "randomforestclassifier__min_samples_leaf" : [puntuaciones.best_params_['randomforestclassifier__min_samples_leaf']-5,puntuaciones.best_params_['randomforestclassifier__min_samples_leaf'],puntuaciones.best_params_['randomforestclassifier__min_samples_leaf']+5 ],
             "randomforestclassifier__max_features" : [puntuaciones.best_params_['randomforestclassifier__max_features']],
             "randomforestclassifier__class_weight": [puntuaciones.best_params_['randomforestclassifier__class_weight']],
-            "randomforestclassifier__bootstrap": [False,True]
+            "randomforestclassifier__bootstrap": [True],
+            "randomforestclassifier__oob_score": [True],
+            "randomforestclassifier__warm_start": [puntuaciones.best_params_['randomforestclassifier__warm_start']],
+            "randomforestclassifier__max_samples": [puntuaciones.best_params_['randomforestclassifier__max_samples']-0.1,puntuaciones.best_params_['randomforestclassifier__max_samples'],puntuaciones.best_params_['randomforestclassifier__max_samples']+0.1],
+            "randomforestclassifier__max_depth": [puntuaciones.best_params_['randomforestclassifier__max_depth']-1,puntuaciones.best_params_['randomforestclassifier__max_depth'],puntuaciones.best_params_['randomforestclassifier__max_depth']+1]
             }
         ]
     else:

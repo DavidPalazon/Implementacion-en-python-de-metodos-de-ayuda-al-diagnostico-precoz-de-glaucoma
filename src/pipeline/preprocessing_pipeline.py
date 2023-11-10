@@ -42,7 +42,7 @@ class Preprocessor:
         """
         try:
             smt = SMOTE(random_state=27)
-            clf_dt = DecissionTreeClassifier(random_state=27)
+            clf_dt = DecisionTreeClassifier(random_state=27)
             clf_rf = RandomForestClassifier(n_jobs=-1, random_state=27, oob_score=True)
             SFM = SelectFromModel(estimator=clf_rf)
 
